@@ -1,0 +1,9 @@
+version: "3.8"
+services:
+  app:
+    build: .
+    volumes:
+      - .:/app  # Mount local code into container (live changes)
+    ports:
+      - "3000:8000"  # Format is: host:container
+    command: uvicorn main:app --host 0.0.0.0 --port 8000 --reload
